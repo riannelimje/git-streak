@@ -35,18 +35,18 @@ export function ScorePanel({
             <img
               src={player.avatarUrl}
               alt={player.username}
-              className="w-10 h-10 rounded-full border-2 border-zinc-300 dark:border-zinc-700"
+              className="w-10 h-10 rounded-full border-2 border-zinc-300"
             />
             <div>
-              <p className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
+              <p className="text-sm font-medium text-zinc-900">
                 {player.username}
               </p>
-              <p className="text-xs text-zinc-500 dark:text-zinc-400">GitHub Mode</p>
+              <p className="text-xs text-zinc-500">GitHub Mode</p>
             </div>
           </>
         ) : (
-          <div className="px-3 py-1.5 bg-zinc-100 dark:bg-zinc-800 rounded-lg">
-            <p className="text-xs font-medium text-zinc-600 dark:text-zinc-400">
+          <div className="px-3 py-1.5 bg-white border border-zinc-200 rounded-lg">
+            <p className="text-xs font-medium text-zinc-600">
               Sample Data Mode
             </p>
           </div>
@@ -56,31 +56,31 @@ export function ScorePanel({
       {/* Game stats */}
       <div className="flex gap-6">
         <div className="text-center">
-          <p className="text-2xl font-bold text-zinc-900 dark:text-zinc-100">
+          <p className="text-2xl font-bold text-zinc-900">
             {score}
           </p>
-          <p className="text-xs text-zinc-500 dark:text-zinc-400">Score</p>
+          <p className="text-xs text-zinc-500">Score</p>
         </div>
         
         <div className="text-center">
-          <p className="text-2xl font-bold text-zinc-900 dark:text-zinc-100">
+          <p className="text-2xl font-bold text-zinc-900">
             {tilesCollected}
           </p>
-          <p className="text-xs text-zinc-500 dark:text-zinc-400">Collected</p>
+          <p className="text-xs text-zinc-500">Collected</p>
         </div>
         
         <div className="text-center">
-          <p className="text-2xl font-bold text-zinc-900 dark:text-zinc-100">
+          <p className="text-2xl font-bold text-zinc-900">
             {tilesRemaining}
           </p>
-          <p className="text-xs text-zinc-500 dark:text-zinc-400">Remaining</p>
+          <p className="text-xs text-zinc-500">Remaining</p>
         </div>
         
         <div className="text-center">
-          <p className="text-2xl font-bold text-zinc-900 dark:text-zinc-100">
+          <p className="text-2xl font-bold text-zinc-900">
             {snakeLength}
           </p>
-          <p className="text-xs text-zinc-500 dark:text-zinc-400">Length</p>
+          <p className="text-xs text-zinc-500">Length</p>
         </div>
       </div>
     </div>

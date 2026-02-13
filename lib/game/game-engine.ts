@@ -113,12 +113,8 @@ export function tick(gameState: GameState): GameState {
     };
   }
   
-  // Determine if snake should grow (if moving onto a collectable tile)
-  const nextHead = getSnakeHead(snake);
-  const shouldGrow = isTileCollectable(grid, nextHead);
-  
-  // Move the snake
-  const movedSnake = moveSnake(snake, shouldGrow);
+  // Move the snake first
+  const movedSnake = moveSnake(snake, false); // Never grow automatically
   const newHead = getSnakeHead(movedSnake);
   
   // Check for collisions after moving
@@ -131,9 +127,17 @@ export function tick(gameState: GameState): GameState {
     };
   }
   
-  // Collect tile if at collectable position
-  const { grid: updatedGrid, points } = collectTile(grid, newHead);
-  const newScore = score + points;
+  // Collect tiles for all positions the snake occupies
+  let updatedGrid = grid;
+  let totalPoints = 0;
+  
+  for (const position of movedSnake.body) {
+    const { grid: newGrid, points } = collectTile(updatedGrid, position);
+    updatedGrid = newGrid;
+    totalPoints += points;
+  }
+  
+  const newScore = score + totalPoints;
   
   // Check win condition (all tiles collected)
   const hasWon = areAllTilesCollected(updatedGrid);

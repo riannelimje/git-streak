@@ -108,10 +108,10 @@ export default function Home() {
   // Playing screen
   if (screen === 'playing' && currentGrid) {
     return (
-      <div className="min-h-screen bg-white dark:bg-black">
-        <header className="border-b border-zinc-200 dark:border-zinc-800 py-4 px-4">
+      <div className="min-h-screen bg-zinc-50">
+        <header className="bg-white border-b border-zinc-200 py-4 px-4">
           <div className="max-w-5xl mx-auto flex items-center justify-between">
-            <h1 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100">
+            <h1 className="text-2xl font-bold text-zinc-900">
               git-streak
             </h1>
             <div className="flex items-center gap-4">
@@ -140,17 +140,17 @@ export default function Home() {
 
   // Landing screen
   return (
-    <div className="min-h-screen bg-white dark:bg-black flex flex-col">
+    <div className="min-h-screen bg-zinc-50 flex flex-col">
       <main className="flex-1 flex flex-col items-center justify-center px-4 py-16">
         {/* Hero Section */}
         <div className="text-center mb-12 max-w-3xl">
-          <h1 className="text-5xl sm:text-6xl font-bold mb-4 text-zinc-900 dark:text-zinc-100">
+          <h1 className="text-5xl sm:text-6xl font-bold mb-4 text-zinc-900">
             git-streak
           </h1>
-          <p className="text-xl text-zinc-600 dark:text-zinc-400 mb-2">
+          <p className="text-xl text-zinc-600 mb-2">
             Turn your GitHub contributions into a snake game
           </p>
-          <p className="text-sm text-zinc-500 dark:text-zinc-500">
+          <p className="text-sm text-zinc-500">
             Collect green tiles to increase your score. Each tile is worth its commit count!
           </p>
         </div>
@@ -158,7 +158,7 @@ export default function Home() {
         {/* GitHub Section */}
         {player ? (
           <div className="w-full max-w-2xl mx-auto mb-12">
-            <div className="bg-zinc-50 dark:bg-zinc-900 rounded-lg p-8 border border-zinc-200 dark:border-zinc-800">
+            <div className="bg-white rounded-lg p-8 border border-zinc-200 shadow-sm">
               <div className="flex items-center justify-between mb-6">
                 <UserBadge player={player} onSignOut={handleSignOut} />
               </div>
@@ -175,11 +175,11 @@ export default function Home() {
           </div>
         ) : (
           <div className="w-full max-w-2xl mx-auto mb-12">
-            <div className="bg-zinc-50 dark:bg-zinc-900 rounded-lg p-8 border border-zinc-200 dark:border-zinc-800 text-center">
-              <h2 className="text-xl font-bold mb-3 text-zinc-900 dark:text-zinc-100">
+            <div className="bg-white rounded-lg p-8 border border-zinc-200 shadow-sm text-center">
+              <h2 className="text-xl font-bold mb-3 text-zinc-900">
                 Play with Your GitHub Data
               </h2>
-              <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-6">
+              <p className="text-sm text-zinc-600 mb-6">
                 Sign in to turn your real contribution history into a playable game
               </p>
               <SignInButton />
@@ -191,10 +191,10 @@ export default function Home() {
         <div className="w-full max-w-2xl mx-auto mb-12">
           <div className="relative">
             <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-zinc-200 dark:border-zinc-800"></div>
+              <div className="w-full border-t border-zinc-200"></div>
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-4 bg-white dark:bg-black text-zinc-500 dark:text-zinc-400">
+              <span className="px-4 bg-zinc-50 text-zinc-500">
                 or try with sample data
               </span>
             </div>

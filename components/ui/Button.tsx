@@ -25,9 +25,9 @@ export function Button({
   const baseStyles = 'font-medium rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed';
   
   const variants = {
-    primary: 'bg-zinc-900 dark:bg-zinc-100 text-white dark:text-zinc-900 hover:bg-zinc-700 dark:hover:bg-zinc-300',
-    secondary: 'bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-zinc-100 hover:bg-zinc-200 dark:hover:bg-zinc-700',
-    outline: 'border-2 border-zinc-900 dark:border-zinc-100 text-zinc-900 dark:text-zinc-100 hover:bg-zinc-100 dark:hover:bg-zinc-900',
+    primary: 'bg-zinc-900 text-white hover:bg-zinc-700',
+    secondary: 'bg-white text-zinc-900 border border-zinc-300 hover:bg-zinc-50',
+    outline: 'border-2 border-zinc-900 text-zinc-900 hover:bg-zinc-100',
   };
   
   const sizes = {

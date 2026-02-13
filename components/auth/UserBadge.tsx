@@ -23,15 +23,15 @@ export function UserBadge({ player, onSignOut }: UserBadgeProps) {
       <img
         src={player.avatarUrl}
         alt={player.username}
-        className="w-10 h-10 rounded-full border-2 border-zinc-300 dark:border-zinc-700"
+        className="w-10 h-10 rounded-full border-2 border-zinc-300"
       />
       <div className="flex-1">
-        <p className="text-sm font-medium text-zinc-900 dark:text-zinc-100">
+        <p className="text-sm font-medium text-zinc-900">
           {player.username}
         </p>
         <button
           onClick={onSignOut}
-          className="text-xs text-zinc-500 dark:text-zinc-400 hover:text-zinc-700 dark:hover:text-zinc-300"
+          className="text-xs text-zinc-500 hover:text-zinc-700"
         >
           Sign out
         </button>

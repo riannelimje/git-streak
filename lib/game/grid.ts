@@ -11,25 +11,32 @@ import { getDayOfWeek, getWeekNumber, getOneYearAgo } from '../utils/date-utils'
  */
 export function getContributionLevel(count: number): ContributionLevel {
   if (count === 0) return 0;
-  if (count <= 3) return 1;
-  if (count <= 6) return 2;
-  if (count <= 9) return 3;
+  if (count < 3) return 1;
+  if (count < 6) return 2;
+  if (count < 10) return 3;
   return 4;
 }
 
 /**
  * Get CSS color for contribution level
- * Matches GitHub's green color scale
+ * Matches GitHub's exact light theme color palette
  */
 export function getLevelColor(level: ContributionLevel): string {
   const colors = {
-    0: '#161b22', // Dark grey (no contributions)
-    1: '#0e4429', // Light green
-    2: '#006d32', // Medium green
-    3: '#26a641', // Bright green
-    4: '#39d353', // Brightest green
+    0: '#ebedf0', // Light grey (no contributions)
+    1: '#9be9a8', // Light green
+    2: '#40c463', // Medium green
+    3: '#30a14e', // Bright green
+    4: '#216e39', // Darkest green
   };
   return colors[level];
+}
+
+/**
+ * Get collected tile color (dimmed grey)
+ */
+export function getCollectedColor(): string {
+  return '#d0d7de'; // Slightly dimmer grey for collected tiles
 }
 
 /**

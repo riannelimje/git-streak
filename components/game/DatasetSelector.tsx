@@ -19,7 +19,7 @@ interface DatasetSelectorProps {
 export function DatasetSelector({ onSelect, selectedType }: DatasetSelectorProps) {
   return (
     <div className="w-full max-w-2xl mx-auto">
-      <h2 className="text-2xl font-bold text-center mb-6 text-zinc-900 dark:text-zinc-100">
+      <h2 className="text-2xl font-bold text-center mb-6 text-zinc-900">
         Choose Your Challenge
       </h2>
       
@@ -33,14 +33,14 @@ export function DatasetSelector({ onSelect, selectedType }: DatasetSelectorProps
               onClick={() => onSelect(dataset.type)}
               className={`p-6 rounded-lg border-2 transition-all text-left ${
                 isSelected
-                  ? 'border-zinc-900 dark:border-zinc-100 bg-zinc-50 dark:bg-zinc-800'
-                  : 'border-zinc-200 dark:border-zinc-700 hover:border-zinc-400 dark:hover:border-zinc-500'
+                  ? 'border-zinc-900 bg-zinc-50'
+                  : 'border-zinc-200 hover:border-zinc-400'
               }`}
             >
-              <h3 className="text-lg font-bold mb-2 text-zinc-900 dark:text-zinc-100">
+              <h3 className="text-lg font-bold mb-2 text-zinc-900">
                 {dataset.label}
               </h3>
-              <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-4">
+              <p className="text-sm text-zinc-600 mb-4">
                 {dataset.description}
               </p>
               
@@ -52,7 +52,7 @@ export function DatasetSelector({ onSelect, selectedType }: DatasetSelectorProps
                     className={`h-2 flex-1 rounded ${
                       level <= (dataset.type === 'light' ? 1 : dataset.type === 'medium' ? 2 : 3)
                         ? 'bg-green-500'
-                        : 'bg-zinc-200 dark:bg-zinc-700'
+                        : 'bg-zinc-200'
                     }`}
                   />
                 ))}

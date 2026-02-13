@@ -68,7 +68,7 @@ export function GameBoard({
       />
       
       {/* Game Grid */}
-      <div className="flex justify-center items-center bg-zinc-50 dark:bg-zinc-900 rounded-lg p-8 min-h-[400px]">
+      <div className="flex justify-center items-center bg-white rounded-lg p-8 border border-zinc-200 shadow-sm">
         <ContributionGrid
           grid={gameState.grid}
           snakeBody={gameState.snake.body}
@@ -76,7 +76,7 @@ export function GameBoard({
       </div>
       
       {/* Controls hint */}
-      <div className="text-center text-sm text-zinc-500 dark:text-zinc-400">
+      <div className="text-center text-sm text-zinc-500">
         Use arrow keys or WASD to control the snake
       </div>
       
