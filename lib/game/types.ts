@@ -53,6 +53,7 @@ export type GameState = {
   score: number;
   isGameOver: boolean;
   isWin: boolean;
+  tilesCollectedSinceGrowth: number; // Track tiles collected to grow every 5
 };
 
 /**

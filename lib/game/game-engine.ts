@@ -20,6 +20,7 @@ import {
   areAllTilesCollected,
   findFirstCollectableTile 
 } from './grid';
+import { getAdjacentPosition } from '../utils/grid-helpers';
 
 /**
  * Initialize a new game state
@@ -36,6 +37,7 @@ export function initializeGame(grid: Grid): GameState {
       score: 0,
       isGameOver: true,
       isWin: false,
+      tilesCollectedSinceGrowth: 0,
     };
   }
   
@@ -45,6 +47,7 @@ export function initializeGame(grid: Grid): GameState {
     score: 0,
     isGameOver: false,
     isWin: false,
+    tilesCollectedSinceGrowth: 0,
   };
 }
 
@@ -102,7 +105,7 @@ export function tick(gameState: GameState): GameState {
     return gameState;
   }
   
-  const { snake, grid, score } = gameState;
+  const { snake, grid, score, tilesCollectedSinceGrowth } = gameState;
   
   // Check if next move is valid before moving
   if (!isNextMoveValid(snake, grid)) {
@@ -113,8 +116,11 @@ export function tick(gameState: GameState): GameState {
     };
   }
   
-  // Move the snake first
-  const movedSnake = moveSnake(snake, false); // Never grow automatically
+  // Store the tail before moving (in case we need to grow)
+  const oldTail = snake.body[snake.body.length - 1];
+  
+  // Move the snake without growth
+  let movedSnake = moveSnake(snake, false);
   const newHead = getSnakeHead(movedSnake);
   
   // Check for collisions after moving
@@ -127,14 +133,22 @@ export function tick(gameState: GameState): GameState {
     };
   }
   
-  // Collect tiles for all positions the snake occupies
-  let updatedGrid = grid;
-  let totalPoints = 0;
+  // Collect tile at head position
+  const { grid: updatedGrid, points: totalPoints } = collectTile(grid, newHead);
   
-  for (const position of movedSnake.body) {
-    const { grid: newGrid, points } = collectTile(updatedGrid, position);
-    updatedGrid = newGrid;
-    totalPoints += points;
+  // Update tiles collected counter
+  let newTilesCount = tilesCollectedSinceGrowth;
+  if (totalPoints > 0) {
+    newTilesCount++;
+  }
+  
+  // Grow snake every 5 tiles collected
+  if (newTilesCount >= 5) {
+    movedSnake = {
+      ...movedSnake,
+      body: [...movedSnake.body, oldTail],
+    };
+    newTilesCount = 0; // Reset counter
   }
   
   const newScore = score + totalPoints;
@@ -148,6 +162,7 @@ export function tick(gameState: GameState): GameState {
     score: newScore,
     isGameOver: hasWon,
     isWin: hasWon,
+    tilesCollectedSinceGrowth: newTilesCount,
   };
 }
 

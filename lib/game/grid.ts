@@ -33,10 +33,10 @@ export function getLevelColor(level: ContributionLevel): string {
 }
 
 /**
- * Get collected tile color (dimmed grey)
+ * Get collected tile color (empty state)
  */
 export function getCollectedColor(): string {
-  return '#d0d7de'; // Slightly dimmer grey for collected tiles
+  return '#ebedf0'; // Empty tile color - same as level 0
 }
 
 /**
