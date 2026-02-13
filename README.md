@@ -20,7 +20,7 @@ Turn your GitHub contribution graph into an addictive snake game! Collect commit
 ### 🐍 Classic Snake Mechanics
 - Smooth 60 FPS gameplay with 150ms tick speed
 - Arrow keys + WASD controls
-- Fixed snake length (no growth - pure skill!)
+- Snake length increases every 5 tiles
 - Collect tiles by passing through them (all body segments count)
 
 ### 📊 Real-time Stats
